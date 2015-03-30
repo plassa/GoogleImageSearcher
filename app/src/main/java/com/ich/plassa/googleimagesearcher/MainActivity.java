@@ -1,9 +1,11 @@
 package com.ich.plassa.googleimagesearcher;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -33,15 +35,27 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        //if (id == R.id.action_settings) {
+        //        return true;
+        // }
+
+        if (id == R.id.miFilter) {
+            Toast.makeText(this, "Clicked",
+                    Toast.LENGTH_SHORT).show();
+            // Navigate to the new activity
+            // Create your intent
+            Intent i = new Intent(this, FilterActivity.class);
+            // Bundle "extra"
+            i.putExtra("filter", filter);
+            // Run the startActivity
+            startActivityForResult(i, FILTER_RESULT);
+            // Pass the current value
+
         }
+
 
         return super.onOptionsItemSelected(item);
     }
-
-
-    
 
 
 }
