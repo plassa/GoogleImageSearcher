@@ -8,12 +8,15 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
 
+    public FilterModel filter;
+    public static final int FILTER_RESULT = 50;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        filter = new FilterModel();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,4 +39,9 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    
+
+
 }
