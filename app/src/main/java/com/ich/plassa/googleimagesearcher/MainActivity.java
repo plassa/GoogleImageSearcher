@@ -57,5 +57,27 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /// Fires automatically when "form data" is posted
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Handle the form data
+        if (requestCode == REQUEST_RESULT) {
+            if (resultCode == RESULT_OK) {
+                // Toast YES or NO based on if age is greater than 21
+                // Get the age out of the form data
+                request = (RequestModel) data.getSerializableExtra("request");
+                // Check the age
+                String message;
+                if (request.age >= 21) {
+                    message = "DRINK UP!";
+                } else {
+                    message = "NONE FOR YOU!";
+                }
+                // Toast
+                Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
 }
